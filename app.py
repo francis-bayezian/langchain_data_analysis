@@ -16,7 +16,9 @@ import numpy as np
 import os
 import streamlit as st
 
-os.environ["OPENAI_API_KEY"] = "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"
+
+key = st.text_input("Enter your OpenAI key")
+os.environ["OPENAI_API_KEY"] = key
 def main():
     load_dotenv()
 

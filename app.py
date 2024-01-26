@@ -17,14 +17,16 @@ import os
 import streamlit as st
 
 
-key = st.text_input("Enter your OpenAI key")
-os.environ["OPENAI_API_KEY"] = key
+
+
 def main():
     load_dotenv()
 
 
     st.set_page_config(page_title="Ask your CSV")
     st.header("Ask your CSV 📈")
+    key = st.text_input("Enter your OpenAI key")
+    os.environ["OPENAI_API_KEY"] = key
 
     csv_file = st.file_uploader("Upload a CSV file")
     if csv_file is not None:

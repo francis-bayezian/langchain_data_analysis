@@ -39,7 +39,7 @@ def main():
         
         
         user_question = st.text_input("Ask a question about your CSV: ")
-        question =  user_question + f" . Plot and save the output"
+        question =  user_question + f" . Plot and save the outputs"
 
         if user_question is not None and user_question != "":
             with st.spinner(text="In progress..."):

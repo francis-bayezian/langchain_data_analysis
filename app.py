@@ -4,7 +4,6 @@ from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
-from tabulate import tabulate
 from PIL import Image
 import pandas as pd
 import numpy as np

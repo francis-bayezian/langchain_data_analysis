@@ -2,9 +2,8 @@ PyQt5
 langchain_openai
 langchain-experimental
 langchain-core
-pandas
+pandas==2.1.4
 python-dotenv
 pillow
 numpy
 streamlit
-tabulate

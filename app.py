@@ -1,6 +1,8 @@
 from langchain_openai import OpenAI
 from langchain.agents.agent_types import AgentType
 from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
+from langchain.agents import AgentExecutor
+from langchain_experimental.tools import PythonREPLTool
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from PIL import Image
@@ -32,8 +34,10 @@ def main():
             ("user", "{input}")
             ])
         
+        tools = [PythonREPLTool()]
         llm = create_pandas_dataframe_agent(ChatOpenAI(temperature=0,model = "gpt-4-0613"), document, verbose=True)
         chain = prompt | llm
+        agent_executor = AgentExecutor(chain,tools,verbose=True)
         
         
         user_question = st.text_input("Ask a question about your data: ")
@@ -41,7 +45,7 @@ def main():
 
         if user_question is not None and user_question != "":
             with st.spinner(text="In progress..."):
-                output = chain.invoke({"input": question })
+                output = agent_executor.invoke({"input": question })
                 desired_output = output['output']
                 message = st.chat_message("assistant")
                 message.write(desired_output)

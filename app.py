@@ -63,7 +63,7 @@ def main():
                     st.table(data_csv)
         
                     
-                files = [file for file in files if file.lower().endswith(('.png', '.jpg', '.jpeg', '.gif','.csv'))]
+                files = [file for file in files if file.lower().endswith(('.png', '.jpg', '.jpeg', '.gif','.csv','.pq'))]
                 for file in files:
                     image_path = os.path.join(current_directory, file)
                     os.remove(image_path)

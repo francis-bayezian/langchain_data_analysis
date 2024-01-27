@@ -1,4 +1,3 @@
-PyQt5
 langchain_openai
 langchain-experimental
 langchain-core

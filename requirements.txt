@@ -3,7 +3,7 @@ langchain_openai
 langchain-experimental
 langchain-core
 pandas
-dotenv
-PIL
+python-dotenv
+pillow
 numpy
 streamlit

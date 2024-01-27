@@ -32,7 +32,7 @@ def main():
             ("user", "{input}")
             ])
         
-        llm = create_pandas_dataframe_agent(ChatOpenAI(temperature=0,model = "gpt-4-0613"), document, verbose=False)
+        llm = create_pandas_dataframe_agent(ChatOpenAI(temperature=0,model = "gpt-4-0613"), document, verbose=True)
         chain = prompt | llm
         
         

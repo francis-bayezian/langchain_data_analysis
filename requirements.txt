@@ -4,7 +4,6 @@ langchain-experimental
 langchain-core
 pandas
 dotenv
-tabula
 PIL
 numpy
 streamlit

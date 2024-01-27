@@ -1,8 +1,8 @@
+tabulate
 langchain_openai
 langchain-experimental
 langchain-core
 langchain
 pandas==2.1.4
 numpy
-tabulate
 streamlit

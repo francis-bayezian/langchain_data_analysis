@@ -36,7 +36,7 @@ def main():
         chain = prompt | llm
         
         
-        user_question = st.text_input("Ask a question about your CSV: ")
+        user_question = st.text_input("Ask a question about your data: ")
         question =  user_question + f" . Plot and save the output"
 
         if user_question is not None and user_question != "":

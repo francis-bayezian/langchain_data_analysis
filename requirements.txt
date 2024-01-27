@@ -7,4 +7,3 @@ python-dotenv
 pillow
 numpy
 streamlit
-tabulate

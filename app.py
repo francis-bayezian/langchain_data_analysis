@@ -7,7 +7,6 @@ from dotenv import load_dotenv
 from PIL import Image
 import pandas as pd
 import numpy as np
-from tabulate import tabulate
 import os
 import streamlit as st
 

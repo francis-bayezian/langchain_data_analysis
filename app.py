@@ -13,17 +13,6 @@ from langchain.schema import BasePromptTemplate
 from langchain.tools import BaseTool
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.messages import SystemMessage
-from langchain_experimental.agents.agent_toolkits.pandas.prompt import (
-    FUNCTIONS_WITH_DF,
-    FUNCTIONS_WITH_MULTI_DF,
-    MULTI_DF_PREFIX,
-    MULTI_DF_PREFIX_FUNCTIONS,
-    PREFIX,
-    PREFIX_FUNCTIONS,
-    SUFFIX_NO_DF,
-    SUFFIX_WITH_DF,
-    SUFFIX_WITH_MULTI_DF,
-)
 from langchain_experimental.tools.python.tool import PythonAstREPLTool
 
 

@@ -34,8 +34,6 @@ def main():
             ("user", "{input}")
             ])
         
-        st_callback = StreamlitCallbackHandler(st.container())
-        
         llm = create_pandas_dataframe_agent(ChatOpenAI(temperature=0,model = "gpt-4-0613"), document, verbose=False)
         chain = prompt | llm
         

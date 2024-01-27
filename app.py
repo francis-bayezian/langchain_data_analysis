@@ -37,7 +37,7 @@ def main():
         tools = [PythonREPLTool()]
         llm = create_pandas_dataframe_agent(ChatOpenAI(temperature=0,model = "gpt-4-0613"), document, verbose=True)
         chain = prompt | llm
-        agent_executor = AgentExecutor(chain,tools,verbose=True)
+        agent_executor = AgentExecutor(chain)
         
         
         user_question = st.text_input("Ask a question about your data: ")

@@ -16,7 +16,7 @@ import streamlit as st
 def main():
     load_dotenv()
     st.set_page_config(page_title="Ask your CSV")
-    st.title("Streamlit Financial Analyzer 📊")
+    st.title("Financial Analyzer 📊")
     key = st.text_input("Enter your OpenAI key",type="password")
     os.environ["OPENAI_API_KEY"] = key
 

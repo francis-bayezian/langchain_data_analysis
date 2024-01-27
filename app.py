@@ -3,6 +3,7 @@ from langchain.agents.agent_types import AgentType
 from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
 from PIL import Image
 import pandas as pd
 import numpy as np
@@ -32,12 +33,12 @@ def main():
             ("user", "{input}")
             ])
         
-        llm = create_pandas_dataframe_agent(ChatOpenAI(temperature=0,model = "gpt-4-0613"), document, verbose=True)
+        llm = create_pandas_dataframe_agent(ChatOpenAI(temperature=0,model = "gpt-4-0613"), document, verbose=False)
         chain = prompt | llm
         
         
-        user_question = st.text_input("Ask a question about your data: ")
-        question =  user_question + f" . Plot and save the output"
+        user_question = st.text_input("Ask a question about your CSV: ")
+        question =  user_question + f" . Plot and save the outputs"
 
         if user_question is not None and user_question != "":
             with st.spinner(text="In progress..."):

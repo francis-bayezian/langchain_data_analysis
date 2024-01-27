@@ -6,3 +6,5 @@ pandas
 dotenv
 tabula
 PIL
+numpy
+streamlit

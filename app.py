@@ -1,8 +1,9 @@
 from langchain_openai import OpenAI
 from langchain.agents.agent_types import AgentType
 from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
-from langchain_core.prompts import 
+from langchain_core.prompts import ChatPromptTemplate
 from typing import Any, Dict, List, Optional, Sequence, Tuple
+
 from langchain.agents.agent import AgentExecutor, BaseSingleActionAgent
 from langchain.agents.mrkl.base import ZeroShotAgent
 from langchain.agents.openai_functions_agent.base import OpenAIFunctionsAgent
@@ -13,11 +14,19 @@ from langchain.schema import BasePromptTemplate
 from langchain.tools import BaseTool
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.messages import SystemMessage
+
+from langchain_experimental.agents.agent_toolkits.pandas.prompt import (
+    FUNCTIONS_WITH_DF,
+    FUNCTIONS_WITH_MULTI_DF,
+    MULTI_DF_PREFIX,
+    MULTI_DF_PREFIX_FUNCTIONS,
+    PREFIX,
+    PREFIX_FUNCTIONS,
+    SUFFIX_NO_DF,
+    SUFFIX_WITH_DF,
+    SUFFIX_WITH_MULTI_DF,
+)
 from langchain_experimental.tools.python.tool import PythonAstREPLTool
-
-
-
-
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 from PIL import Image

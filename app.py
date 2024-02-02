@@ -14,7 +14,7 @@ import streamlit as st
 
 def main():
     st.set_page_config(page_title="Ask your CSV")
-    st.title("Financial Analyzer 📊")
+    st.title("Business Dashboard 📊")
     key = st.text_input("Enter your OpenAI key",type="password")
     os.environ["OPENAI_API_KEY"] = key
 
@@ -23,12 +23,14 @@ def main():
         with open(os.path.join(os.getcwd(), csv_file.name), 'wb') as f:
              f.write(csv_file.getvalue())
              
-        data = pd.read_parquet(csv_file)
-        document = data.reset_index()
-        document['symbol'] = document['symbol'].ffill()
+        document = pd.read_csv(csv_file)
+        #document = data.reset_index()
+        #document['symbol'] = document['symbol'].ffill()
         
         prompt = ChatPromptTemplate.from_messages([
-            ("system", "You are a AI financial stock market analyst. You are to provide a detail analysis of the data using the provided question."),
+            ("system", "You are a Business analyst.\
+                You are to analysis the data and generate the needed plots and reports.\
+                    Your job is to generate a high level dashboard and report of the data"),
             ("user", "{input}")
             ])
         
@@ -36,8 +38,8 @@ def main():
         chain = prompt | llm
         
         
-        user_question = st.text_input("Ask a question about your CSV: ")
-        question =  user_question + f" . Plot and save the outputs"
+        user_question = st.text_input("Ask a question about data: ")
+        question =  user_question + f" . Save outputs if is a plots or csv but do not save the actual csv file."
 
         if user_question is not None and user_question != "":
             with st.spinner(text="In progress..."):
@@ -61,7 +63,7 @@ def main():
                     st.table(data_csv)
         
                     
-                files = [file for file in files if file.lower().endswith(('.png', '.jpg', '.jpeg', '.gif','.csv','.pq'))]
+                files = [file for file in files if file.lower().endswith(('.png', '.jpg', '.jpeg', '.gif','.pq','.csv'))]
                 for file in files:
                     image_path = os.path.join(current_directory, file)
                     os.remove(image_path)
